@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:papatruck/views/tabs/dashboard.dart';
-import 'package:papatruck/views/tabs/log.dart';
+import 'package:papatruck/tools/papa_storage.dart';
+
+import 'tabs/dashboard.dart';
+import 'tabs/tachograph.dart';
 
 
 class Tabs extends StatefulWidget {
@@ -32,10 +34,10 @@ class _TabsState extends State<Tabs> {
             ]
           )
         ),
-        body: const TabBarView(
+        body: TabBarView(
                 children: [
-                  Dashboard(),
-                  Log(),
+                  const Dashboard(),
+                  Log(storage: PapaStorage()),
                 ]
               )
       )

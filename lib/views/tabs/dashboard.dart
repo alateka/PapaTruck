@@ -1,7 +1,4 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-
-import 'package:papatruck/assets.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -11,7 +8,7 @@ class Dashboard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-         image: Image.memory(base64Decode(Assets().backgroundApp)).image,
+         image: Image.asset('assets/background.jpg').image,
          fit: BoxFit.cover
         )
       ),
