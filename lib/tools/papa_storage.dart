@@ -13,24 +13,26 @@ class PapaStorage {
     return File('$path/papatruck.data');
   }
 
-  Future<int> readFile() async {
+  Future<String> readFile() async {
     try {
       final file = await _localFile;
+      final String fileData = await file.readAsString();
+      return fileData;
 
-      // Read the file
-      final contents = await file.readAsString();
-
-      return int.parse(contents);
     } catch (e) {
-      // If encountering an error, return 0
-      return 0;
+      return "0";
     }
   }
 
-  Future<File> writeFile(int counter) async {
+  Future<File> writeFile(String description, String hour) async {
     final file = await _localFile;
 
-    // Write the file
-    return file.writeAsString('$counter');
+    return file.writeAsString('$description;$hour;;;', mode: FileMode.append);
+  }
+
+  Future<File> createPapaFile() async {
+    final file = await _localFile;
+
+    return file.writeAsString("");
   }
 }

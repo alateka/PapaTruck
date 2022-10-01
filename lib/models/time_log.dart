@@ -1,20 +1,10 @@
 class TimeLog {
   String description = "";
-  int hour = 0;
+  String hour = "";
 
-  TimeLog() {
-    description;
-    hour;
-  }
+  TimeLog(this.description, this.hour);
 
-  getHour() {
-    return hour;
-  }
-  getDescription() {
-    return description;
-  }
-
-  setHour(int hour) {
+  setHour(String hour) {
     this.hour = hour;
   }
   setDescription(String description) {

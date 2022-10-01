@@ -12,6 +12,26 @@ class Dashboard extends StatelessWidget {
          fit: BoxFit.cover
         )
       ),
+      child: Opacity(
+        opacity: 0.9,
+        child: Padding(
+        padding: const EdgeInsets.fromLTRB(33, 33, 33, 133),
+          child: Container(
+            decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 17, 118, 201),
+            borderRadius: BorderRadius.circular(19),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black,
+                blurRadius: 11,
+                offset: Offset(0,5)
+                )
+              ]
+            ),
+            child: const Text("Hola", style: TextStyle(color: Colors.white),),
+          ),
+        ),
+      )
     );
   }
 }

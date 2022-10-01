@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'views/tabs.dart';
+import 'tools/papa_storage.dart';
 
 
 void main() {
@@ -17,7 +18,7 @@ class PapaTruck extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: const Tabs()
+      home: Tabs(storage: PapaStorage())
     );
   }
 }
