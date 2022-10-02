@@ -28,7 +28,7 @@ class Dashboard extends StatelessWidget {
                 )
               ]
             ),
-            child: const Text("Hola", style: TextStyle(color: Colors.white),),
+            child: const Text("alpha_v02082022", style: TextStyle(color: Colors.white),)
           ),
         ),
       )

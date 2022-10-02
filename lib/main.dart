@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:papatruck/models/time_log.dart';
 
 import 'views/tabs.dart';
 import 'tools/papa_storage.dart';
-
 
 void main() {
   runApp(const PapaTruck());
@@ -10,6 +10,8 @@ void main() {
 
 class PapaTruck extends StatelessWidget {
   const PapaTruck({super.key});
+
+  static final List<TimeLog> timeLogs = [];
 
   @override
   Widget build(BuildContext context) {

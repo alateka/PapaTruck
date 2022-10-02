@@ -3,7 +3,7 @@ import 'package:path_provider/path_provider.dart';
 
 class PapaStorage {
   Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
+    final directory = await getApplicationSupportDirectory();
 
     return directory.path;
   }
@@ -26,7 +26,6 @@ class PapaStorage {
 
   Future<File> writeFile(String description, String hour) async {
     final file = await _localFile;
-
     return file.writeAsString('$description;$hour;;;', mode: FileMode.append);
   }
 
