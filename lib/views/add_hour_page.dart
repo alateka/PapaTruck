@@ -61,6 +61,6 @@ class AddHourPage extends StatelessWidget {
   }
   Future<File> _writeLog(String description, String hour) async {
     PapaTruck.timeLogs.add(TimeLog(description, hour));
-    return storage.writeFile(description, hour);
+    return storage.rewriteFile();
   }
 }

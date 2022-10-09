@@ -22,7 +22,7 @@ class Tachograph extends StatelessWidget {
       child: ListView.builder(
         itemCount: logs.length,
         itemBuilder: (BuildContext context, int index) {
-          return itemContainer(logs[index].description, logs[index].hour);
+          return itemContainer(logs[index].description, logs[index].hour, index);
         }
       ),
     );

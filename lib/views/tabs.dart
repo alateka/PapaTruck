@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+
 import 'package:papatruck/main.dart';
 import 'package:papatruck/models/time_log.dart';
 import 'package:papatruck/tools/papa_storage.dart';
 import 'package:papatruck/views/add_hour_page.dart';
-
 import 'tabs/dashboard.dart';
 import 'tabs/tachograph.dart';
 
@@ -23,15 +24,10 @@ class _TabsState extends State<Tabs> {
   void initState() {
     super.initState();
     widget.storage.readFile().then((dataFile) {
-      if (dataFile.contains("0") || dataFile.isEmpty) {
-        PapaTruck.timeLogs.add(TimeLog("No hay nada", "0"));
-        widget.storage.createPapaFile();
-      } else {
-        for (String timeLog in dataFile.split(';;;')) {
-          PapaTruck.timeLogs.add(
-            TimeLog(timeLog.split(';')[0], timeLog.split(';')[1])
-          );
-        }
+      for (var timeLog in jsonDecode(dataFile)) {
+        PapaTruck.timeLogs.add(
+          TimeLog.fromJson(timeLog)
+        );
       }
     });
   }

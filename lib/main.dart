@@ -11,7 +11,7 @@ void main() {
 class PapaTruck extends StatelessWidget {
   const PapaTruck({super.key});
 
-  static final List<TimeLog> timeLogs = [];
+  static List<TimeLog> timeLogs = [];
 
   @override
   Widget build(BuildContext context) {
