@@ -20,23 +20,24 @@ class AddHourPage extends StatelessWidget {
     final hourField = TextEditingController();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Añadir hora"),
       ),
       body: Form(  
         key: formKey,  
-        child: Column(  
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,  
           children: <Widget>[  
-            TextFormField(  
+            TextFormField(
               controller: descriptionField,
               decoration: const InputDecoration(  
-                icon: Icon(Icons.book),  
+                icon: Icon(Icons.menu_book),  
                 hintText: 'Introduce una descripción',  
                 labelText: 'Descripción',  
               ),  
             ),  
-            TextFormField(  
+            TextFormField(
               controller: hourField,
               decoration: const InputDecoration(  
                 icon: Icon(Icons.alarm),  
@@ -44,7 +45,7 @@ class AddHourPage extends StatelessWidget {
                 labelText: 'Horas',  
               ),  
             ), 
-            Container(  
+            Container(
               padding: const EdgeInsets.only(left: 150.0, top: 40.0),  
               child: ElevatedButton(  
                 onPressed: () {
@@ -56,7 +57,7 @@ class AddHourPage extends StatelessWidget {
             ), 
           ],
         ),  
-      )
+      ),
     );
   }
   Future<File> _writeLog(String description, String hour) async {

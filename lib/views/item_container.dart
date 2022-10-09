@@ -30,6 +30,7 @@ Widget itemContainer(String description, String hour, int id) {
           leading: const Icon(Icons.alarm, color: Colors.white,),
           title: Text("$hour : $description",style: const TextStyle(color: Colors.white)),
           trailing: PopupMenuButton<int>(
+            icon: const Icon(Icons.menu),
             itemBuilder: (context) {
               return [
                 const PopupMenuItem(

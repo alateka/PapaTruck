@@ -12,7 +12,7 @@ class PapaStorage {
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    return File('$path/papatruck.data');
+    return File('$path/papatruck.json');
   }
 
   Future<String> readFile() async {

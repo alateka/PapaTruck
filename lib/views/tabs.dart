@@ -4,10 +4,9 @@ import 'dart:convert';
 import 'package:papatruck/main.dart';
 import 'package:papatruck/models/time_log.dart';
 import 'package:papatruck/tools/papa_storage.dart';
-import 'package:papatruck/views/add_hour_page.dart';
 import 'tabs/dashboard.dart';
 import 'tabs/tachograph.dart';
-
+import 'package:papatruck/views/add_hour_page.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key, required this.storage});
@@ -45,26 +44,13 @@ class _TabsState extends State<Tabs> {
               return [
                 const PopupMenuItem<int>(
                     value: 0,
-                    child: Text("Añadir hora"),
-                ),
-                const PopupMenuItem<int>(
-                    value: 1,
                     child: Text("Sobre la APP"),
                 ),
               ];
             },
             onSelected: (value) {
               if( value == 0 ) {
-                Navigator.push(
-                  context, 
-                  MaterialPageRoute(
-                    builder: (context) => AddHourPage(
-                      storage: PapaStorage(),
-                      logs: PapaTruck.timeLogs)))
-                .then((value){setState(() {});});
-              }
-              if( value == 1 ) {
-                // Sobre la APP
+                // About
               }
             })
           ],
@@ -88,7 +74,23 @@ class _TabsState extends State<Tabs> {
             const Dashboard(),
             Tachograph(storage: PapaStorage(), logs: PapaTruck.timeLogs),
           ]
-        )
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          shape: RoundedRectangleBorder(
+            side: const BorderSide(
+              width: 3,
+              color: Color.fromARGB(255, 169, 216, 255)),
+              borderRadius: BorderRadius.circular(100)),
+          onPressed: () => Navigator.push(
+            context, 
+            MaterialPageRoute(
+              builder: (context) => AddHourPage(
+                storage: PapaStorage(),
+                logs: PapaTruck.timeLogs)))
+            .then((value){setState(() {});}),
+          child: const Icon(Icons.add),
+        ), 
       )
     );
   }

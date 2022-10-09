@@ -18,8 +18,10 @@ class PapaTruck extends StatelessWidget {
     return MaterialApp(
       title: 'PapaTruck',
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.blue
       ),
+      // darkTheme: ThemeData.dark(),
       home: Tabs(storage: PapaStorage())
     );
   }
